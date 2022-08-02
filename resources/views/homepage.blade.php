@@ -38,7 +38,9 @@
     @endforeach
 
     </div>
-    
+</div>
+
+@endsection
 
 <!-- Hash Maker para cadastro de senha de usuário no banco.
 <?php
@@ -47,8 +49,3 @@ use Illuminate\Support\Facades\Hash;
 
 echo Hash::make('1234');
 ?> -->
-    
-
-</div>
-
-@endsection
