@@ -2,7 +2,7 @@
 
 <br>
 <p> Antes de executar o programa é necessário previamente instalado o gerenciador de depências composer e o compilador de PHP </p>
-<p> Primeiramente faça o clone do repositório para sua máquina local com ocomando </p>
+<p> Primeiramente faça o clone do repositório para sua máquina local com o comando </p>
 
 ```
 git clone https://github.com/Thiagoojtds/Cinema
