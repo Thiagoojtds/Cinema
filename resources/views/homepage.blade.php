@@ -39,16 +39,19 @@
 
     </div>
     
+</div>
 
-<!-- Hash Maker para cadastro de senha de usuário no banco.
+
+@endsection
+
+<!-- Hash Maker para cadastro de senha de usuário no banco.-->
+
+
+<!-- 
 <?php
 
 use Illuminate\Support\Facades\Hash;
 
-echo Hash::make('1234');
-?> -->
-    
+echo '<p style="color: white" >' . Hash::make('1234') . '</p>';
+?>  -->
 
-</div>
-
-@endsection
