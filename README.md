@@ -48,7 +48,7 @@ INSERT INTO users (name, email, password) VALUES ('nomeusuario','emailusuario', 
 ```
 
 <p>Obs. para validar será necessário que a senha a ser inserida no banco esteja convertida em hash, para gerar uma chave pela aplicação, ao final da 
-view homepage está comentado um HashMaker, você pode descomentar e incluir dentro da função make uma string com a senha desejada, e após salvar e atualizar a página inicial, no topo será exibido a senha em hash</p>
+view homepage está comentado um HashMaker, você pode descomentar e incluir dentro da função make uma string com a senha desejada, e após salvar e atualizar a página inicial, no topo será exibido a senha em hash.</p>
 
 
 
