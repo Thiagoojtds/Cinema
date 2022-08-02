@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('movie_id')->constrained('movies')->onDelete('restrict')->onUpdate('cascade');
             $table->foreignId('room_id')->constrained('rooms')->onDelete('restrict')->onUpdate('cascade');
-            $table->dateTime('date');
+            $table->date('date');
             $table->time('time');
             $table->timestamps();
         });
