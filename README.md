@@ -35,20 +35,18 @@ DB_PASSWORD={Senha para conexão com o banco}
 php artisan migrate
 ```
 
+<p> Para popular as tabelas do banco de dados criado com registros já predefinidos, utilize o comando
+
+```
+
+php arisan db:seed
+```
+
 <p>Inicie o servidor artisan do Laravel com o comando abaixo e já pode utilizar o sistema no endereço de localhost que será fornecido.</p>
 
 ```
 php artisan serve
 ```
-
-<p>Para poder utilizar o CRUD completo será necessário criar um novo login de admin diretamente no banco, pode inserir manualmente na interface ou utilizar o seguinte comando SQL</p>
-
-```
-INSERT INTO users (name, email, password) VALUES ('nomeusuario','emailusuario', 'senha em hash')
-```
-
-<p>Obs. para validar será necessário que a senha a ser inserida no banco esteja convertida em hash, para gerar uma chave pela aplicação, ao final da 
-view homepage está comentado um HashMaker, você pode descomentar e incluir dentro da função make uma string com a senha desejada, e após salvar e atualizar a página inicial, no topo será exibido a senha em hash.</p>
 
 
 
