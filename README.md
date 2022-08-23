@@ -38,7 +38,6 @@ php artisan migrate
 <p> Para popular as tabelas do banco de dados criado com registros já predefinidos, utilize o comando
 
 ```
-
 php arisan db:seed
 ```
 
