@@ -52,9 +52,3 @@ INSERT INTO users (name, email, password) VALUES ('nomeusuario','emailusuario', 
 view homepage está comentado um HashMaker, você pode descomentar e incluir dentro da função make uma string com a senha desejada, e após salvar e atualizar a página inicial, no topo será exibido a senha em hash.</p>
 
 
-
-
-
-
-
->>>>>>> 8a32fd76d1ade95bde3312826949f348194def05
