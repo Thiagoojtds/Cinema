@@ -40,21 +40,7 @@
     @endforeach
 
     </div>
-<<<<<<< HEAD
-    
-</div>
-
-@endsection
-=======
 </div>
 
 @endsection
 
-<!-- Hash Maker para cadastro de senha de usuário no banco.
-<?php
-
-use Illuminate\Support\Facades\Hash;
-
-echo Hash::make('1234');
-?> -->
->>>>>>> 8a32fd76d1ade95bde3312826949f348194def05
