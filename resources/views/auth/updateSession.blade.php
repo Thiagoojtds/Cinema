@@ -42,7 +42,7 @@
         </div>
     </div><br>
 
-
+    <a href="{{ route('adminPage') }}"class="btn btn-danger">VOLTAR</a>
     <button type="submit" class="btn btn-danger" style="margin-left: 100px;">SUBMIT </button>
 
 </form>
