@@ -2,9 +2,9 @@
 
 @section('content')
 
-<legend><center><h2><b>Atualizar Filme</b></h2></center></legend><br>
+<legend style="color: white"><center><h2><b>Atualizar Filme</b></h2></center></legend><br>
 
-<form class="well form-horizontal"style="margin-left: 550px;"action="{{ route('updateMovie', $movie->id) }}" method="POST">
+<form class="well form-horizontal"style="margin-left: 550px; color: white"action="{{ route('updateMovie', $movie->id) }}" method="POST">
 
     @csrf
     @method('PUT')
@@ -29,7 +29,7 @@
     <div class="form-group">
     <label class="col-md-4 control-label">Descrição</label>  
         <div class="col-md-4 inputGroupContainer">
-            <textarea class="form-control" minlength="52" id="MovieDescription" value="{{ $movie->description }}" name="description" rows="6" cols="50" ></textarea>
+            <textarea class="form-control" minlength="52" id="MovieDescription" name="description" rows="6" cols="50">{{ $movie->description }}</textarea>
         </div>
     </div>
 
@@ -45,20 +45,26 @@
     <!-- Text input-->
 
     <div class="form-group">
-    <label class="col-md-4 control-label" >Tags</label> 
-        <div class="col-md-4 inputGroupContainer">
-            <input type="search" class="form-control" id="MovieTags" value="{{ $movie->tags }}"name="tags">
-        </div>
+        <label>Tags</label> <br>
+        <input class="col-md-4 control-label" name="tags" type="text" list="tags">
+            <datalist id="tags">
+                @foreach($tags as $tag)
+                    <option value="{{ $tag->name }}"></option>
+                @endforeach
+            </datalist>
     </div>
 
 
     <div class="form-group">
-    <label class="col-md-4 control-label">Classificação indicativa</label>  
-        <div class="col-md-4 inputGroupContainer">
-            <input type="search" class="form-control" id="MovieClassification" value="{{ $movie->classification }}"name="classification">
-        </div>
+    <label>Classificação indicativa</label><br>
+        <select class="col-md-4 control-label" name="classification">
+            @foreach($classifications as $classification)
+                <option>{{ $classification->name }}</option>
+            @endforeach
+        </select>
     </div><br>
 
+        <a href="{{ route('adminPage') }}"class="btn btn-danger">VOLTAR</a>
         <button type="submit" class="btn btn-danger" style="margin-left: 100px;">SUBMIT </button>
 </form>
 

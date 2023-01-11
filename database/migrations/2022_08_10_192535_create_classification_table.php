@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sessions', function (Blueprint $table) {
+        Schema::create('classifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('movie_id')->constrained('movies')->onDelete('restrict')->onUpdate('cascade');
-            $table->foreignId('room_id')->constrained('rooms')->onDelete('restrict')->onUpdate('cascade');
-            $table->dateTime('date');
-            $table->time('time');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('session');
+        Schema::dropIfExists('classification');
     }
 };

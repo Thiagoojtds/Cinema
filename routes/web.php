@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\Authentication as ControllersAuthentication;
-use App\Http\Controllers\Movie as ControllersMovie;
-use App\Http\Controllers\Route as ControllersRoute;
-use App\Http\Controllers\Home as ControllersHome;
-use App\Http\Controllers\Room as ControllersRoom;
-use App\Http\Controllers\Session as ControllersSession;
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RouteController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,29 +18,35 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/lastmovies', [HomeController::class, 'lastMovies'])->name('lastDays');
+Route::get('/nextmovies', [HomeController::class, 'nextMovies'])->name('nextDays');
 
-Route::get('/', [ControllersHome::class, 'index'])->name('home');
-Route::get('/description/{id}', [ControllersRoute::class, 'description'])->name('description');
-Route::get('/auth', [ControllersRoute::class, 'adminAuth'])->name('login');
-Route::post('/auth', [ControllersAuthentication::class, 'logIn'])->name('auth');
-Route::get('/admin', [ControllersRoute::class, 'adminPage'])->name('adminPage')->middleware('auth');
-Route::post('/movie', [ControllersMovie::class, 'store'])->name('storeMovie');
-Route::post('/room', [ControllersRoom::class, 'store'])->name(('storeRoom'));
-Route::post('/admin', [ControllersSession::class, 'store'])->name('storeSession')->middleware('auth');
+Route::post('/auth', [AuthenticationController::class, 'logIn'])->name('auth');
+Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 
-Route::delete('/session/{id}', [ControllersSession::class, 'destroy'])->name('destroySession');
-Route::delete('/room/{id}', [ControllersRoom::class, 'destroy'])->name('destroyRoom');
-Route::delete('/movie/{id}', [ControllersMovie::class, 'destroy'])->name('destroyMovie');
+Route::get('/description/{id}', [RouteController::class, 'description'])->name('description');
+Route::get('/auth', [RouteController::class, 'adminAuth'])->name('login');
+Route::get('/admin', [RouteController::class, 'adminPage'])->name('adminPage')->middleware('auth');
+Route::post('/search', [RouteController::class, 'search'])->name('search');
 
-Route::get('/movie/{id}', [ControllersMovie::class, 'updateMoviePage'])->name('updateMoviePage')->middleware('auth');
-Route::put('/movie/{id}', [ControllersMovie::class, 'update'])->name('updateMovie');
+Route::post('/movie', [MovieController::class, 'store'])->name('storeMovie');
+Route::delete('/movie/{id}', [MovieController::class, 'destroy'])->name('destroyMovie')->middleware('auth');;
+Route::get('/movie/{id}', [MovieController::class, 'updateMoviePage'])->name('updateMoviePage')->middleware('auth');
+Route::put('/movie/{id}', [MovieController::class, 'update'])->name('updateMovie')->middleware('auth');;
 
-Route::get('/session/{id}', [ControllersSession::class, 'updateSessionPage'])->name('updateSessionPage')->middleware('auth');
-Route::put('/session/{id}', [ControllersSession::class, 'update'])->name('updateSession');
+Route::post('/admin', [SessionController::class, 'store'])->name('storeSession');
+Route::delete('/session/{id}', [SessionController::class, 'destroy'])->name('destroySession')->middleware('auth');;
+Route::get('/session/{id}', [SessionController::class, 'updateSessionPage'])->name('updateSessionPage')->middleware('auth');
+Route::put('/session/{id}', [SessionController::class, 'update'])->name('updateSession')->middleware('auth');
+Route::post('/searchTable', [SessionController::class, 'searchTable'])->name('searchTable');
 
-Route::post('/search', [ControllersRoute::class, 'search'])->name('search');
+Route::post('/room', [RoomController::class, 'store'])->name('storeRoom');
+Route::delete('/room/{id}', [RoomController::class, 'destroy'])->name('destroyRoom')->middleware('auth');
+Route::put('/room/{id}', [RoomController::class, 'update'])->name('updateRoom')->middleware('auth');
 
-Route::get('/logout', [ControllersAuthentication::class, 'logout'])->name('logout');
 
-Route::get('/lastmovies', [ControllersHome::class, 'lastMovies'])->name('lastDays');
-Route::get('/nextmovies', [ControllersHome::class, 'nextMovies'])->name('nextDays');
+
+
+
+

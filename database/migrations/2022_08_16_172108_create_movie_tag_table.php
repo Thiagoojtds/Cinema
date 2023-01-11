@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('movie_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->time('duration');
-            $table->string('tags');
-            $table->string('image');
-            $table->string('classification');
+            $table->foreignId('tag_id')->constrained('tags')->onUpdate('CASCADE');
+            $table->foreignId('movie_id')->constrained('movies')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movies');
+        Schema::dropIfExists('movie_tag');
     }
 };

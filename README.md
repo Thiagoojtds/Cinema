@@ -1,3 +1,4 @@
+
 <h1> Projeto de Cinema feito em Laravel</h1>
 
 <br>
@@ -50,11 +51,6 @@ php artisan serve
 <p> O ucuário admin para acessar a tela administrativa é: </p>
 <p> e-mail: admin@admin.com </p>
 <p> senha: 1234 </p>
-
-
-
-
-
 
 
 
