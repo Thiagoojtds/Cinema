@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {   
         $movies = Movie::get();
-
+        
         return view('homepage', [
             'movies' => $movies
         ]);
